@@ -1,0 +1,5 @@
+# ~/.config/kitty/kitty.conf
+
+include ./nord.conf
+include dracula.conf
+include dracula.conf
