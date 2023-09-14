@@ -79,14 +79,14 @@
 (after! evil-collection-vterm
   (evil-set-initial-state 'vterm-mode 'emacs))
 
-(add-hook! 'server-after-make-frame-hook #'toggle-frame-maximized)
+;; (add-hook! 'server-after-make-frame-hook #'toggle-frame-maximized)
 
 (use-package! elcord
   :init
   (setq elcord-editor-icon "emacs_material_icon"
         elcord-quiet t))
 
-(setq projectile-project-search-path '(("~/Documents" . 3)))
+(setq projectile-project-search-path '(("~/Documents" . 3) "~/"))
 
 (elcord-mode)
 
