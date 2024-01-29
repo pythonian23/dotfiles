@@ -1,5 +1,15 @@
 # ~/.config/kitty/kitty.conf
 
-include ./nord.conf
-include dracula.conf
-include dracula.conf
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
+
+font_size 14.0
+font_family Fira Code
+mouse_hide_wait 0
+copy_on_select clipboard
+bell_on_tab "🔔 "
+remember_window_size no
+initial_window_width 1280
+initial_window_height 640
