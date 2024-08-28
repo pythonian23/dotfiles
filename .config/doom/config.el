@@ -82,17 +82,31 @@
 
 ;; (add-hook! 'server-after-make-frame-hook #'toggle-frame-maximized)
 
-(use-package! elcord
+(after! elcord
   :init
-  (setq elcord-editor-icon "emacs_material_icon"
+  (setq elcord-editor-icon "doom_cute_icon"
         elcord-quiet t))
 
-(setq projectile-project-search-path '(("~/Documents" . 3) "~/"))
+(after! dired
+(setq dired-listing-switches "-laX --group-directories-first"))
 
-(gofmt-before-save)
+(after! projectile
+(setq projectile-project-search-path '(("~/Documents/" . 3) "~/" "~/GitPrograms/"))
+(projectile-register-project-type 'make '("Makefile")
+                                  :project-file "Makefile"
+                                  :compile "make -j"
+                                  :package "make -j package"
+                                  :test "make -j test"
+                                  :run "make -j run")
+(setq projectile-switch-project-action #'projectile-dired))
+(map! :leader "SPC" #'projectile-switch-project)
+(map! :after projectile :leader "p P" #'projectile-package-project)
+(treemacs-project-follow-mode t)
 
-(elcord-mode)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (ipython . t)))
+(setq org-latex-compiler "xelatex")
 
 (message "UwU")
-
-(defalias 'open 'find-file)
