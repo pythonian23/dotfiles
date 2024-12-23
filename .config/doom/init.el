@@ -15,14 +15,6 @@
 ;;      directory (for easy access to its source code).
 
 (doom!
-       :app
-       ;;calendar
-       ;;emms
-       ;;everywhere        ; *leave* Emacs!? You must be joking
-       ;;irc               ; how neckbeards socialize
-       ;;(rss +org)        ; emacs as an RSS reader
-       ;;twitter           ; twitter client https://twitter.com/vnought
-
        :checkers
        syntax              ; tasing you for every semicolon you forget
        ;;(spell +flyspell) ; tasing you for misspelling mispelling
@@ -34,10 +26,6 @@
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
        (vertico +icons)    ; the search engine of the future
-
-       :config
-       ;;literate
-       (default +bindings +smartparens)
 
        :editor
        (evil +everywhere)  ; come to the dark side, we have cookies
@@ -194,4 +182,16 @@
        window-select       ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
        ;;zen               ; distraction-free coding or writing
+
+       :config
+       ;;literate
+       (default +bindings +smartparens)
+
+       :app
+       ;;calendar
+       ;;emms
+       ;;everywhere        ; *leave* Emacs!? You must be joking
+       ;;irc               ; how neckbeards socialize
+       ;;(rss +org)        ; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
 )

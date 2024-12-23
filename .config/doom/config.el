@@ -103,6 +103,8 @@
 (map! :after projectile :leader "p P" #'projectile-package-project)
 (treemacs-project-follow-mode t)
 
+(setq vterm-shell "fish")
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)

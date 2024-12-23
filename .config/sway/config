@@ -1,0 +1,191 @@
+# Catppuccin
+
+include /etc/sway/config.d/*
+include catppuccin-macchiato
+
+# Variables
+
+set $MOD Mod4
+set $MOD_S $MOD+Shift
+
+# Autostart
+
+exec dex -a
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec wl-clip-persist -c both
+exec autotiling-rs
+exec waybar
+exec dunst
+exec appimaged
+exec swww-daemon
+exec vesktop
+exec blueman-applet
+#exec /usr/lib/ibus/ibus-ui-gtk3 -idvg "--xim --panel disable" > ~/ilog.log 2> ~/ilog2.log
+exec fcitx5
+exec randswww ~/Pictures/SuperWallpapers/
+
+exec vesktop
+
+# Outputs
+
+output DP-5 mode 1920x1080@60Hz pos -1920 0
+output DP-6 mode 1920x1080@60Hz pos -1920 0
+output HDMI-A-2 mode 1920x1080@60Hz pos -1920 0
+
+# Input
+
+input "type:keyboard" xkb_options caps:escape
+input "type:touchpad" tap enabled
+
+input 10429:2353:UGTABLET_6_inch_PenTablet_Keyboard map_to_region 0 0 2560 1600
+input 10429:2353:UGTABLET_6_inch_PenTablet_Mouse map_to_region 0 0 2560 1600
+input 10429:2353:UGTABLET_6_inch_PenTablet_Pen map_to_region 0 0 2560 1600
+
+bindgesture {
+            swipe:3:left  focus     left
+            swipe:3:down  focus     down
+            swipe:3:up    focus     up
+            swipe:3:right focus     right
+            swipe:4:left  workspace prev
+            swipe:4:right workspace next
+            swipe:4:down  workspace prev_on_output
+            swipe:4:up    workspace next_on_output
+
+            pinch:3:inward+left  move      left
+            pinch:3:inward+down  move      down
+            pinch:3:inward+up    move      up
+            pinch:3:inward+right move      right
+
+            pinch:3:clockwise exec kitty
+}
+
+# Font
+
+font pango:Fira Mono 16
+
+# Windows
+
+gaps inner 6
+smart_gaps on
+titlebar_border_thickness 2
+default_border pixel 2
+smart_borders on
+
+assign [class="vesktop"] → D
+for_window [class="Bitwarden"] floating true
+for_window [title="Extension: (Bitwarden Password Manager) - Bitwarden - Mozilla Firefox"] floating true
+
+# Colors
+
+# target                 title     bg      text      indicator border
+client.focused           $mauve    $base   $text     $mauve    $mauve
+#client.focused_inactive  $pink     $mantle $subtext1 $mauve    $pink
+client.focused_inactive  $overlay0 $crust  $subtext0 $mauve    $overlay0
+client.unfocused         $overlay0 $crust  $subtext0 $mauve    $overlay0
+client.urgent            $red      $base   $red      $mauve    $red
+
+# Control
+
+floating_modifier $MOD
+bindsym {
+        $MOD+Q       kill
+        $MOD+F       floating    toggle
+        $MOD+P       sticky      toggle
+        $MOD_S+F     fullscreen  toggle
+
+        $MOD+H       focus                       left
+        $MOD+J       focus                       down
+        $MOD+K       focus                       up
+        $MOD+L       focus                       right
+
+        $MOD_S+H     move                        left
+        $MOD_S+J     move                        down
+        $MOD_S+K     move                        up
+        $MOD_S+L     move                        right
+
+        $MOD+1       workspace                   number 1
+        $MOD+2       workspace                   number 2
+        $MOD+3       workspace                   number 3
+        $MOD+4       workspace                   number 4
+        $MOD+5       workspace                   number 5
+        $MOD+6       workspace                   number 6
+        $MOD+7       workspace                   number 7
+        $MOD+8       workspace                   number 8
+        $MOD+9       workspace                   number 9
+        $MOD+0       workspace                   number 10
+        $MOD+D       workspace                   D
+
+        $MOD_S+1     move container to workspace number 1
+        $MOD_S+2     move container to workspace number 2
+        $MOD_S+3     move container to workspace number 3
+        $MOD_S+4     move container to workspace number 4
+        $MOD_S+5     move container to workspace number 5
+        $MOD_S+6     move container to workspace number 6
+        $MOD_S+7     move container to workspace number 7
+        $MOD_S+8     move container to workspace number 8
+        $MOD_S+9     move container to workspace number 9
+        $MOD_S+0     move container to workspace number 10
+        $MOD_S+D     move container to workspace D
+
+        $MOD+Left    focus output                left
+        $MOD+Down    focus output                down
+        $MOD+Up      focus output                up
+        $MOD+Right   focus output                right
+
+        $MOD_S+Left  move workspace to output    left
+        $MOD_S+Down  move workspace to output    down
+        $MOD_S+Up    move workspace to output    up
+        $MOD_S+Right move workspace to output    right
+}
+
+# Util
+
+bindsym {
+        $MOD+Return   exec tofi-drun --drun-launch=true
+        $MOD+R        exec $(tofi-run --require-match=false)
+        # $MOD+G        exec __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia tofi-drun --drun-launch=true
+        $MOD+G        exec prime-run tofi-drun --drun-launch=true
+
+        Print         exec hyprshot -m region --clipboard-only
+        $MOD+Print    exec hyprshot -m output --clipboard-only
+        $MOD+O        exec hyprpicker -arf hex
+
+        XF86AudioMute          exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        XF86AudioLowerVolume   exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
+        XF86AudioRaiseVolume   exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+        XF86AudioMicMute       exec pactl set-source-mute 0 toggle
+        XF86AudioPrev          exec playerctl previous
+        XF86AudioPlay          exec playerctl play-pause || mpc toggle
+        XF86AudioPause         exec playerctl play-pause || mpc toggle
+        XF86AudioNext          exec playerctl next
+        XF86MonBrightnessDown  exec brightnessctl -d intel_backlight s 5%-
+        XF86MonBrightnessUp    exec brightnessctl -d intel_backlight s +5%
+
+        $MOD_S+Slash       exec wl-copy ‽
+}
+
+# Apps
+
+bindsym {
+        $MOD+Space    exec emacs
+        $MOD+T        exec kitty
+        $MOD+I        exec kitty -e ipython3 --profile=calc
+        $MOD+W        exec firefox
+        $MOD+A        exec ani-cli -c --rofi
+        $MOD+Shift+A  exec ani-cli --rofi
+        $MOD+B        exec bitwarden-desktop
+}
+
+# MPD Madness
+
+bindsym {
+        $MOD+M        exec printf "%s\n" "🧹 Clear" "⏯️ Play/Pause" "⏮️ Previous" "⏭️ Next" "🔇 Mute" "🔈 Low Volume" "🔉 Medium Volume" "🔊 High Volume" "📢 Max Volume" "🎲 Random" | tofi --prompt-text "🎸 " | awk '{ print $1 }' | sed -e "s/🧹/clear/ ; s/⏯️/toggle/ ; s/⏮️/prev/ ; s/⏭️/next/ ; s/🔇/volume 0/ ; s/🔈/volume 25/ ; s/🔉/volume 50/ ; s/🔊/volume 75/ ; s/📢/volume 100/ ; s/🎲/random/" | xargs mpc
+        $MOD_S+M  exec mpc list Album | tofi --prompt-text '💿 ' | xargs -I % mpc searchadd Album "%" && mpc play
+        $MOD+Ctrl+M   exec mpc list Title | tofi --prompt-text '📼 ' | xargs -I % mpc searchadd Title "%" && mpc play
+        $MOD+Ctrl+Shift+M  exec mpc playlist | awk '{ print NR " " $0 }' | tofi --prompt-text '🎼 ' | awk '{ print $1 }' | xargs mpc play
+}
+
+# Exec
+
+bindsym {
+        $MOD+Escape exec printf "%s\n" "🔌 Power Off" "♻️ Restart" "⚠️ Suspend" "💤 Hibernate" "🖨️ Reload Config" "⛔ Log Out" | tofi | awk '{ print $1 }' | sed -e "s/🔌/systemctl poweroff/ ; s/♻️/systemctl reboot/ ; s/⚠️/systemctl suspend/ ; s/💤/systemctl hibernate/ ; s/🖨️/swaymsg reload/ ; s/⛔/swaymsg exit/" | xargs swaymsg exec
