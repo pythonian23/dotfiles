@@ -16,9 +16,6 @@
 (package! just-mode)
 (package! fish-mode)
 
-;;; add to $DOOMDIR/packages.el
-;(package! auctex :pin "86b2397abdc20a638e5751251026727bc6282022")
-
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/radian-software/straight.el#the-recipe-format

@@ -24,8 +24,6 @@ exec blueman-applet
 exec fcitx5
 exec randswww ~/Pictures/SuperWallpapers/
 
-exec vesktop
-
 # Outputs
 
 output DP-5 mode 1920x1080@60Hz pos -1920 0
@@ -71,7 +69,8 @@ titlebar_border_thickness 2
 default_border pixel 2
 smart_borders on
 
-assign [class="vesktop"] → D
+assign [app_id="vesktop"] → D
+for_window [instance="display"] floating true
 for_window [class="Bitwarden"] floating true
 for_window [title="Extension: (Bitwarden Password Manager) - Bitwarden - Mozilla Firefox"] floating true
 

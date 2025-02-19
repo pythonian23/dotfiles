@@ -28,8 +28,6 @@ exec blueman-applet
 #exec /usr/lib/ibus/ibus-ui-gtk3 -idvg "--xim --panel disable" > ~/ilog.log 2> ~/ilog2.log
 exec fcitx5
 exec randswww ~/Pictures/SuperWallpapers/
-
-exec vesktop
 #+end_src
 
 * Backend
@@ -82,7 +80,8 @@ titlebar_border_thickness 2
 default_border pixel 2
 smart_borders on
 
-assign [class="vesktop"] → D
+assign [app_id="vesktop"] → D
+for_window [instance="display"] floating true
 for_window [class="Bitwarden"] floating true
 for_window [title="Extension: (Bitwarden Password Manager) - Bitwarden - Mozilla Firefox"] floating true
 #+end_src
