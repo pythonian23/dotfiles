@@ -9,12 +9,7 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 
-(package! elcord)
-(package! lorem-ipsum)
 (package! catppuccin-theme)
-(package! csv-mode)
-(package! just-mode)
-(package! fish-mode)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

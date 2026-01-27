@@ -22,8 +22,8 @@
 ;; accept. For example:
 
 (setq doom-font (font-spec :family "Fira Code" :size 18)
-  doom-variable-pitch-font (font-spec :family "Fira Sans" :size 18)
-  doom-big-font (font-spec :family "Fira Code" :size 36))
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 18)
+      doom-big-font (font-spec :family "Fira Code" :size 24))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -92,17 +92,17 @@
         elcord-quiet t))
 
 (after! dired
-(setq dired-listing-switches "-laX --group-directories-first"))
+  (setq dired-listing-switches "-laX --group-directories-first"))
 
 (after! projectile
-(setq projectile-project-search-path '(("~/Documents/" . 3) "~/" "~/GitPrograms/"))
-(projectile-register-project-type 'make '("Makefile")
-                                  :project-file "Makefile"
-                                  :compile "make -j"
-                                  :package "make -j package"
-                                  :test "make -j test"
-                                  :run "make -j run")
-(setq projectile-switch-project-action #'projectile-dired))
+  (setq projectile-project-search-path '(("~/Documents/" . 3) "~/" "~/GitPrograms/"))
+  (projectile-register-project-type 'make '("Makefile")
+                                    :project-file "Makefile"
+                                    :compile "make -j"
+                                    :package "make -j package"
+                                    :test "make -j test"
+                                    :run "make -j run")
+  (setq projectile-switch-project-action #'projectile-dired))
 (map! :leader "SPC" #'projectile-switch-project)
 (map! :after projectile :leader "p P" #'projectile-package-project)
 (treemacs-project-follow-mode t)
@@ -114,5 +114,24 @@
  '((python . t)
    (ipython . t)))
 (setq org-latex-compiler "xelatex")
+
+;; written by lumo AI (I am a bad person)
+;; ------------------------------------------------------------
+;; Close Emacs automatically when an eshell session ends
+;; ------------------------------------------------------------
+
+(defun my‑eshell‑quit‑and‑close ()
+  "Called from `eshell-exit-hook'.
+If the current Emacs instance only has the eshell buffer/window,
+save any modified files and then terminate Emacs."
+  ;; Optional sanity check – only quit when the only live window is eshell.
+  (when (and (derived-mode-p 'eshell-mode)
+             (= (length (window-list)) 1))
+    ;; `save-buffers-kill-terminal' prompts to save modified buffers
+    ;; and then exits Emacs cleanly.
+    (save-buffers-kill-terminal)))
+
+;; Register the function to run after eshell exits.
+(add-hook 'eshell-exit-hook #'my‑eshell‑quit‑and‑close)
 
 (message "UwU")
