@@ -77,7 +77,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq shell-file-name (executable-find "bash"))
+(setq shell-file-name (executable-find "sh"))
 (setq-default vterm-shell "/usr/bin/fish")
 (setq-default explicit-shell-file-name "/usr/bin/fish")
 
@@ -106,8 +106,6 @@
 (map! :leader "SPC" #'projectile-switch-project)
 (map! :after projectile :leader "p P" #'projectile-package-project)
 (treemacs-project-follow-mode t)
-
-(setq vterm-shell "fish")
 
 (org-babel-do-load-languages
  'org-babel-load-languages
