@@ -112,6 +112,7 @@
  '((python . t)
    (ipython . t)))
 (setq org-latex-compiler "xelatex")
+(setq +latex-viewers '(pdf-tools))
 
 ;; written by lumo AI (I am a bad person)
 ;; ------------------------------------------------------------
