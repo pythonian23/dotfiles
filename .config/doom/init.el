@@ -31,7 +31,8 @@
  (evil +everywhere)  ; come to the dark side, we have cookies
  file-templates      ; auto-snippets for empty files
  fold                ; (nigh) universal code folding
- (format +onsave)  ; automated prettiness
+ ;;(format +onsave)  ; automated prettiness
+ format
  ;;god               ; run Emacs commands without modifier keys
  ;;lispy             ; vim for lisp, for people who don't like vim
  ;;multiple-cursors  ; editing in many places at once
@@ -93,7 +94,7 @@
  (markdown +grip)    ; writing docs for people to ignore
  ;;nim               ; python + lisp at the speed of c
  ;;nix               ; I hereby declare "nix geht mehr!"
- ;;ocaml             ; an objective camel
+ (ocaml +lsp)             ; an objective camel
  (org +gnuplot +pandoc +pretty); organize your plain life in plain text
  ;;php               ; perl's insecure younger brother
  ;;plantuml          ; diagrams for confusing people more

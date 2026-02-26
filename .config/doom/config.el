@@ -114,6 +114,10 @@
 (setq org-latex-compiler "xelatex")
 (setq +latex-viewers '(pdf-tools))
 
+(add-to-list 'load-path
+             "/var/home/pythonian23/.opam/4.14.2/share/emacs/site-lisp")
+(require 'ocp-indent)
+
 ;; written by lumo AI (I am a bad person)
 ;; ------------------------------------------------------------
 ;; Close Emacs automatically when an eshell session ends
