@@ -86,11 +86,6 @@
 
 ;; (add-hook! 'server-after-make-frame-hook #'toggle-frame-maximized)
 
-(after! elcord
-  :init
-  (setq elcord-editor-icon "doom_cute_icon"
-        elcord-quiet t))
-
 (after! dired
   (setq dired-listing-switches "-laX --group-directories-first"))
 
@@ -118,6 +113,11 @@
              "/var/home/pythonian23/.opam/4.14.2/share/emacs/site-lisp")
 (require 'ocp-indent)
 
+(defun uiua-font ()
+  (setq buffer-face-mode-face '(:family "Uiua386" :size 18))
+  (buffer-face-mode))
+(add-hook 'uiua-ts-mode-hook 'uiua-font)
+
 ;; written by lumo AI (I am a bad person)
 ;; ------------------------------------------------------------
 ;; Close Emacs automatically when an eshell session ends
@@ -138,3 +138,5 @@ save any modified files and then terminate Emacs."
 (add-hook 'eshell-exit-hook #'my‑eshell‑quit‑and‑close)
 
 (message "UwU")
+
+(toggle-frame-maximized)
