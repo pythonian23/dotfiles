@@ -139,4 +139,4 @@ save any modified files and then terminate Emacs."
 
 (message "UwU")
 
-(toggle-frame-maximized)
+;;(toggle-frame-maximized)
