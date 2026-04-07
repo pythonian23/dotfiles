@@ -138,5 +138,5 @@ save any modified files and then terminate Emacs."
 (add-hook 'eshell-exit-hook #'my‑eshell‑quit‑and‑close)
 
 (message "UwU")
-
+(desktop-save-mode 1)
 ;;(toggle-frame-maximized)
