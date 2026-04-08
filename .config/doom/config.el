@@ -34,7 +34,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'catppuccin)
-(setq catppuccin-flavor 'macchiato)
+(setq catppuccin-flavor 'mocha)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -106,7 +106,7 @@
  'org-babel-load-languages
  '((python . t)
    (ipython . t)))
-(setq org-latex-compiler "xelatex")
+(setq org-latex-compiler "xelatex --synctex=1")
 (setq +latex-viewers '(pdf-tools))
 
 (add-to-list 'load-path
@@ -136,6 +136,12 @@ save any modified files and then terminate Emacs."
 
 ;; Register the function to run after eshell exits.
 (add-hook 'eshell-exit-hook #'my‑eshell‑quit‑and‑close)
+
+;; magic java gradle checksum
+(setq lsp-java-imports-gradle-wrapper-checksums [(
+   :sha256 "423cb469ccc0ecc31f0e4e1c309976198ccb734cdcbb7029d4bda0f18f57e8d9"
+   :allowed t)])
+(setq lsp-java-jdt-download-url "https://download.eclipse.org/che/che-ls-jdt/snapshots/che-jdt-language-server-latest.tar.gz")
 
 (message "UwU")
 (desktop-save-mode 1)
