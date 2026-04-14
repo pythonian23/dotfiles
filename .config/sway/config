@@ -10,6 +10,7 @@ set $MOD_S $MOD+Shift
 
 # Autostart
 
+exec_always systemctl --user start wm-session.service
 exec dex -a
 exec /usr/lib/polkit-kde-authentication-agent-1
 exec wl-clip-persist -c both
