@@ -275,8 +275,8 @@ binds {
     Super+Alt+L { spawn "swaylock"; }
 
     Mod+Space { spawn "emacs"; }
-    Mod+Z { spawn "zen-browser"; }
-    Mod+D { spawn "vesktop"; }
+    Mod+Z { spawn-sh "if zen-browser; then :; else flatpak run app.zen_browser.zen; fi" ; }
+    Mod+D { spawn-sh "if vesktop; then :; else flatpak run dev.vencord.Vesktop; fi"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -452,6 +452,8 @@ binds {
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
     Mod+Minus { set-column-width "-10%"; }
+    Mod+BracketLeft { set-column-width "50%"; }
+    Mod+BracketRight { set-column-width "100%"; }
     Mod+Equal { set-column-width "+10%"; }
 
     // Finer height adjustments when in column with other windows.
