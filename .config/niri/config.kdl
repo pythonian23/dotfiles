@@ -16,7 +16,7 @@ input {
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             layout "us"
-            options "caps:escape,korean:ralt_hangul,korean:rctlr_hanja"
+            options "caps:ctrl_shifted_capslock,korean:ralt_hangul,korean:rctlr_hanja"
         }
     }
 
@@ -60,7 +60,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "eDP-1" {
+/-output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -190,8 +190,8 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        left 48
-        right 48
+        left 32
+        right 32
         // top 64
         // bottom 64
     }
@@ -203,6 +203,8 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "systemctl" "--user" "start" "wm-session.target"
+spawn-at-startup "udiskie"
+spawn-at-startup "swaybg" "-i" "Pictures/solar-eclipse-venus-artemis-ii.jpg -m fill"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -254,6 +256,19 @@ window-rule {
     // block-out-from "screencast"
 }
 
+window-rule {
+    match app-id="kitty"
+
+    open-floating true
+}
+
+window-rule {
+    match app-id="zen"
+    exclude at-startup=true
+
+    open-floating true
+}
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -271,6 +286,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "kitty"; }
+    Mod+I { spawn "kitty" "utop"; }
     Mod+Return { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
 
@@ -439,7 +455,7 @@ binds {
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { reset-window-height; }
-    Mod+F { maximize-column; }
+    Mod+F { toggle-window-floating; }
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
 
@@ -451,14 +467,14 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
+    Mod+Minus { set-column-width "-12.5%"; }
     Mod+BracketLeft { set-column-width "50%"; }
     Mod+BracketRight { set-column-width "100%"; }
-    Mod+Equal { set-column-width "+10%"; }
+    Mod+Equal { set-column-width "+12.5%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Shift+Minus { set-window-height "-12.5%"; }
+    Mod+Shift+Equal { set-window-height "+12.5%"; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
@@ -468,12 +484,12 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    //Print { screenshot write-to-disk=false show-pointer=false; }
+    //Ctrl+Print { screenshot-screen write-to-disk=false show-pointer=false; }
+    //Alt+Print { screenshot-window write-to-disk=false show-pointer=false; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+Escape { quit; }
+    Mod+Escape { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.

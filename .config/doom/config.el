@@ -110,7 +110,7 @@
 (setq +latex-viewers '(pdf-tools))
 
 (add-to-list 'load-path
-             "/var/home/pythonian23/.opam/4.14.2/share/emacs/site-lisp")
+             "/home/pythonian23/.opam/4.14.2/share/emacs/site-lisp")
 (require 'ocp-indent)
 
 (defun uiua-font ()
@@ -138,10 +138,9 @@ save any modified files and then terminate Emacs."
 (add-hook 'eshell-exit-hook #'my‑eshell‑quit‑and‑close)
 
 ;; magic java gradle checksum
-(setq lsp-java-imports-gradle-wrapper-checksums [(
-   :sha256 "423cb469ccc0ecc31f0e4e1c309976198ccb734cdcbb7029d4bda0f18f57e8d9"
-   :allowed t)])
-(setq lsp-java-jdt-download-url "https://download.eclipse.org/che/che-ls-jdt/snapshots/che-jdt-language-server-latest.tar.gz")
+;(setq lsp-java-imports-gradle-wrapper-checksums [(
+;   :sha256 "423cb469ccc0ecc31f0e4e1c309976198ccb734cdcbb7029d4bda0f18f57e8d9"
+;   :allowed t)])
 
 (message "UwU")
 (desktop-save-mode 1)
