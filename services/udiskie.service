@@ -1,0 +1,11 @@
+[Unit]
+Description=automounter for removable media
+Documentation=man:udiskie(8)
+BindsTo=wm-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/udiskie
+
+[Install]
+WantedBy=wm-session.target
