@@ -466,8 +466,9 @@ binds {
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { reset-window-height; }
-    Mod+F { toggle-window-floating; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+F { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+F { toggle-window-floating; }
+    Mod+Ctrl+F { fullscreen-window; }
     Mod+C { center-column; }
 
     // Finer width adjustments.
