@@ -143,5 +143,5 @@ save any modified files and then terminate Emacs."
 ;   :allowed t)])
 
 (message "UwU")
-(desktop-save-mode 1)
+;;(desktop-save-mode 1)
 ;;(toggle-frame-maximized)
