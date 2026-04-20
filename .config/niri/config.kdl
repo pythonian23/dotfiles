@@ -298,7 +298,8 @@ binds {
     Mod+T { spawn "kitty"; }
     Mod+I { spawn "kitty" "utop"; }
     Mod+Return { spawn "fuzzel"; }
-    Super+Alt+L { spawn "swaylock"; }
+    Mod+Shift+Return { spawn "makoctl" "dismiss"; }
+    Mod+Ctrl+Return { spawn "makoctl" "invoke"; }
 
     Mod+Space { spawn "emacs"; }
     Mod+Z { spawn-sh "if zen-browser; then :; else flatpak run app.zen_browser.zen; fi" ; }
@@ -503,7 +504,8 @@ binds {
     //Alt+Print { screenshot-window write-to-disk=false show-pointer=false; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Escape { quit; }
+    Mod+Shift+Escape { quit; }
+    Super+Ctrl+Escape { spawn "swaylock"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
