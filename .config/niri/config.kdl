@@ -3,6 +3,10 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+environment {
+    QT_QPA_PLATFORM "wayland"
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -16,7 +20,7 @@ input {
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             layout "us"
-            options "caps:ctrl_shifted_capslock,korean:ralt_hangul,korean:rctlr_hanja"
+            options "caps:ctrl_shifted_capslock,korean:ralt_hangul,korean:rctrl_hanja"
         }
     }
 
@@ -52,6 +56,11 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
+}
+
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
 }
 
 // You can configure outputs by their name, which you can find
@@ -205,6 +214,8 @@ layout {
 spawn-at-startup "systemctl" "--user" "start" "wm-session.target"
 spawn-at-startup "udiskie"
 spawn-at-startup "swaybg" "-i" "Pictures/solar-eclipse-venus-artemis-ii.jpg -m fill"
+spawn-at-startup "fcitx"
+spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -256,13 +267,13 @@ window-rule {
     // block-out-from "screencast"
 }
 
-window-rule {
+/-window-rule {
     match app-id="kitty"
 
     open-floating true
 }
 
-window-rule {
+/-window-rule {
     match app-id="zen"
     exclude at-startup=true
 
