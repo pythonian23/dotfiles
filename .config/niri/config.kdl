@@ -213,7 +213,7 @@ layout {
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "systemctl" "--user" "start" "wm-session.target"
 spawn-at-startup "udiskie"
-spawn-at-startup "swaybg" "-i" "Pictures/solar-eclipse-venus-artemis-ii.jpg -m fill"
+spawn-at-startup "swaybg" "-i" "Pictures/solar-eclipse-venus-artemis-ii.jpg" "-m" "fill"
 spawn-at-startup "fcitx"
 spawn-at-startup "waybar"
 
