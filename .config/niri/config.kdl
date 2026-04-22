@@ -298,8 +298,8 @@ binds {
     Mod+T { spawn "kitty"; }
     Mod+I { spawn "kitty" "utop"; }
     Mod+Return { spawn "fuzzel"; }
-    Mod+Shift+Return { spawn "makoctl" "dismiss"; }
-    Mod+Ctrl+Return { spawn "makoctl" "invoke"; }
+    Mod+N { spawn "makoctl" "invoke"; }
+    Mod+Shift+N { spawn "makoctl" "dismiss"; }
 
     Mod+Space { spawn "emacs"; }
     Mod+Z { spawn-sh "if zen-browser; then :; else flatpak run app.zen_browser.zen; fi" ; }
