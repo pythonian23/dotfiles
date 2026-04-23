@@ -505,7 +505,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+Escape { quit; }
-    Super+Ctrl+Escape { spawn "swaylock"; }
+    Super+Ctrl+Escape { spawn "swaylock" "-c" "000000"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
