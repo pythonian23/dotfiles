@@ -298,7 +298,7 @@ binds {
     Mod+T { spawn "kitty"; }
     Mod+I { spawn "kitty" "utop"; }
     Mod+Return { spawn "fuzzel"; }
-    Mod+N { spawn "makoctl" "invoke"; }
+    Mod+N { spawn-sh "makoctl invoke && makoctl dismiss"; }
     Mod+Shift+N { spawn "makoctl" "dismiss"; }
 
     Mod+Space { spawn "emacs"; }
