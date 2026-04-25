@@ -212,7 +212,7 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "systemctl" "--user" "start" "wm-session.target"
-spawn-at-startup "awww" "img" "~/dotfiles/wallpapers/fujifilm-grass.jpg" "--transition-step" "255"
+spawn-at-startup "awww" "img" "/home/pythonian23/dotfiles/wallpapers/fujifilm-grass.jpg" "--transition-step" "255"
 spawn-at-startup "fcitx"
 spawn-at-startup "waybar"
 
