@@ -301,7 +301,7 @@ binds {
     Mod+N { spawn-sh "makoctl invoke && makoctl dismiss"; }
     Mod+Shift+N { spawn "makoctl" "dismiss"; }
 
-    Mod+Space { spawn "emacs"; }
+    Mod+Space { spawn "kitty" "-e" "--" "emacs" "-nw"; }
     Mod+Z { spawn-sh "if zen-browser; then :; else flatpak run app.zen_browser.zen; fi" ; }
     Mod+D { spawn-sh "if vesktop; then :; else flatpak run dev.vencord.Vesktop; fi"; }
 
