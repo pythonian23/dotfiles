@@ -213,7 +213,7 @@ layout {
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "systemctl" "--user" "start" "wm-session.target"
 spawn-at-startup "awww" "img" "/home/pythonian23/dotfiles/wallpapers/fujifilm-grass.jpg" "--transition-step" "255"
-spawn-at-startup "fcitx"
+spawn-at-startup "fcitx5"
 spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
