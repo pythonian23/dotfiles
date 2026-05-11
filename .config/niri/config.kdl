@@ -325,6 +325,8 @@ binds {
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
+    Mod+B     { focus-column-first; }
+    Mod+W     { focus-column-last; }
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
@@ -500,8 +502,9 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     //Print { screenshot write-to-disk=false show-pointer=false; }
-    //Ctrl+Print { screenshot-screen write-to-disk=false show-pointer=false; }
-    //Alt+Print { screenshot-window write-to-disk=false show-pointer=false; }
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen write-to-disk=false show-pointer=false; }
+    Alt+Print { screenshot-window write-to-disk=false show-pointer=false; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+Escape { quit; }
