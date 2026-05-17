@@ -302,7 +302,7 @@ binds {
     Mod+Shift+N { spawn "makoctl" "dismiss"; }
 
     Mod+Space { spawn "emacs"; }
-    Mod+Z { spawn-sh "if zen-browser; then :; else flatpak run app.zen_browser.zen; fi" ; }
+    Mod+Z { spawn-sh "if zen-browser; then :; else if flatpak run app.zen_browser.zen; then :; else floorp; fi fi" ; }
     Mod+D { spawn-sh "if vesktop; then :; else flatpak run dev.vencord.Vesktop; fi"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
