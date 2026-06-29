@@ -10,10 +10,8 @@
                                         ;(package! some-package)
 
 (package! catppuccin-theme)
-(package! uiua-ts-mode)
-(use-package uiua-ts-mode
-  :mode "\\.ua\\'"
-  :ensure t)  ; or :straight t if using straight.el
+(package! lsp-jedi)
+(package! lsp-python-ms :disable t)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

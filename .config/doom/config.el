@@ -113,10 +113,10 @@
              "/home/pythonian23/.opam/4.14.2/share/emacs/site-lisp")
 (require 'ocp-indent)
 
-(defun uiua-font ()
-  (setq buffer-face-mode-face '(:family "Uiua386" :size 18))
-  (buffer-face-mode))
-(add-hook 'uiua-ts-mode-hook 'uiua-font)
+(use-package! lsp-jedi
+  :after lsp-mode
+  :config
+)
 
 ;; written by lumo AI (I am a bad person)
 ;; ------------------------------------------------------------
