@@ -32,23 +32,26 @@ input {
         tap
         // dwt
         // dwtp
-        // natural-scroll
-        // accel-speed 0.2
-        accel-profile "flat"
+	click-method "clickfinger"
+	scroll-factor 0.5
+        natural-scroll
+        accel-speed 0.1
+        accel-profile "adaptive"
         scroll-method "two-finger"
         // disabled-on-external-mouse
     }
 
     mouse {
         // off
-        // natural-scroll
-        // accel-speed 0.2
+        natural-scroll
+        accel-speed 0.2
         accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
     trackpoint {
-        accel-profile "flat"
+	accel-speed 0.1
+        accel-profile "adaptive"
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
