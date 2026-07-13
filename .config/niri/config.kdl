@@ -20,7 +20,8 @@ input {
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             layout "us"
-            options "caps:ctrl_shifted_capslock,korean:ralt_hangul,korean:rctrl_hanja"
+            // options "caps:ctrl_shifted_capslock,korean:ralt_hangul,korean:rctrl_hanja"
+            options "caps:ctrl_shifted_capslock,korean:ralt_hangul,korean:rctrl_hanja,hhkb_layout:hhkb_layout"
         }
     }
 
